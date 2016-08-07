@@ -1,4 +1,4 @@
-CreateClientConVar( "voicechannels_drawoverlay", "1", true, false )
+local overlayCvar = CreateClientConVar( "voicechannels_drawoverlay", "1", true, false )
 
 local vc_black = Color( 20, 20, 20, 245 )
 local vc_white = color_white
@@ -27,7 +27,7 @@ surface.CreateFont( "voicechannels_overlayfont", {
 
 hook.Add( "HUDPaint", "voicechannels_hudpaint_overlay", function()
 	
-	if GetConVar( "voicechannels_drawoverlay" ):GetInt() >= 1 then
+	if overlayCvar:GetBool() then
 	
 		local ply = LocalPlayer()
 		local sid = ply:SteamID()
@@ -47,7 +47,7 @@ hook.Add( "HUDPaint", "voicechannels_hudpaint_overlay", function()
 			
 		surface.SetFont( "voicechannels_overlayfont" )
 		
-		local tw = select( 1, surface.GetTextSize( channame ) )
+		local tw = surface.GetTextSize( channame )
 		local sw = ScrW()
 		
 		draw.RoundedBoxEx( 4, sw - tw - 48, 8, tw + 40, 32, vc_black, true, true, true, true )
