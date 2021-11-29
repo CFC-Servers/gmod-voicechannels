@@ -7,6 +7,8 @@ util.AddNetworkString( "VoiceChannels_CreatedChannel" )
 util.AddNetworkString( "VoiceChannels_RemovedChannel" )
 util.AddNetworkString( "VoiceChannels_ResyncChannel" )
 
+local IsValid = IsValid
+
 -- announces something to all the members of a certain channel.
 voicechannels.AnnounceToChannel = function( chanid, message )
 
