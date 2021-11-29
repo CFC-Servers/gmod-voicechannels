@@ -106,7 +106,7 @@ hook.Add( "PlayerInitialSpawn", "voicechannels_playerinitialspawn_syncallinfo", 
 
 	if IsValid( ply ) then
 	
-		timer.Simple( 2, function()
+		timer.Simple( 25, function()
 		
 			net.Start( "VoiceChannels_SyncFirstSpawn" )
 				net.WriteString( util.TableToJSON( voicechannels.channels ) )
